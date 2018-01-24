@@ -1,0 +1,50 @@
+<aura:component controller="SendSurveyInviteController" implements="force:lightningQuickAction,force:hasRecordId">
+    <aura:attribute name="surveys" type="List" />
+    <aura:attribute name="communities" type="List" />
+    
+    <aura:attribute name="surveyId" type="String" />
+    <aura:attribute name="communityId" type="String" />
+    
+    <aura:attribute name="surveyLink" type="String" />
+    
+    <aura:attribute name="getDetails" type="Boolean" default="true" />
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card >
+        <aura:set attribute="title">
+            Select a Survey for a Community
+        </aura:set>
+        <aura:set attribute="footer">
+            <lightning:button aura:id="send" disabled="true" label="Send" onclick="{!c.handleSend}" />
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            <aura:if isTrue="{! not(v.getDetails) }">
+                {!v.surveyLink}
+            </aura:if>
+            <aura:if isTrue="{!v.getDetails}">
+                <lightning:dualListbox aura:id="selectSurvey"
+                                       name="Select Survey"
+                                       min="1"
+                                       max="1"
+                                       required="true"
+                                       label="Select Survey" 
+                                       sourceLabel="Available Surveys" 
+                                       selectedLabel="Selected Survey" 
+                                       options="{! v.surveys }"
+                                       onchange="{! c.handleSurveyChange }"/>
+                <lightning:dualListbox aura:id="selectCommunity"
+                                       name="Select Community"
+                                       min="1"
+                                       max="1"
+                                       required="true"
+                                       label="Select Community" 
+                                       sourceLabel="Available Communities" 
+                                       selectedLabel="Selected Community" 
+                                       options="{! v.communities }"
+                                       onchange="{! c.handleCommunityChange }"/>
+            </aura:if>
+        </p>
+    </lightning:card>
+</aura:component>
