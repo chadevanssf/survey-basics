@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Lookup_Id_Field__c</fullName>
+        <description>Name of the lookup field on SurveyInvitation to store the Id</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Lookup Id Field</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NetworkId__c</fullName>
+        <description>Network Id, aka Community Id</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>NetworkId</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Participant_Lookup_Query_Id_Field__c</fullName>
+        <description>The field that is referred to for the participant query in the query</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Should be the only field from the query that is returned</inlineHelpText>
+        <label>Participant Lookup Query Id Field</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Participant_Lookup_Query__c</fullName>
+        <description>SOQL Query to get the Id of the participant from the record id context</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>For example, if I had added a lookup to Case on the SurveyInvitation, the context of the component is the Case, and I would enter this query:
+
+SELECT ContactId FROM Case WHERE Id = :contextId</inlineHelpText>
+        <label>Participant Lookup Query</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>Survey Setting</label>
+    <pluralLabel>Survey Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

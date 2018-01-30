@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Participant_Lookup_Query__c</fullName>
+    <description>SOQL Query to get the Id of the participant from the record id context</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>For example, if I had added a lookup to Case on the SurveyInvitation, the context of the component is the Case, and I would enter this query:
+
+SELECT ContactId FROM Case WHERE Id = :contextId</inlineHelpText>
+    <label>Participant Lookup Query</label>
+    <length>32768</length>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>
