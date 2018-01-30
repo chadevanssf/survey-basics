@@ -6,7 +6,7 @@ Some helper functions to get up and running with Salesforce Surveys. Not complet
 
 ### SurveyInvitation Link Manager
 
-Does the creation of a Private SurveyInvitation. Example uses a SurveyInvitation linked to a Case and a Contact. See [SuveyLinkManager](https://github.com/chadevanssf/survey-basics/blob/master/force-app/main/default/classes/SurveyLinkManager.cls) for details.
+Does the creation of a Private SurveyInvitation. Example uses a SurveyInvitation linked to a Case and a Contact. Can be used from Process Builder, or Apex. See [SuveyLinkManager](https://github.com/chadevanssf/survey-basics/blob/master/force-app/main/default/classes/SurveyLinkManager.cls) for details.
 
 ## Deployment Options
 
