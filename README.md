@@ -12,7 +12,7 @@ Does the creation of a Private SurveyInvitation. Example uses a SurveyInvitation
 
 ### Deploy using SFDX
 
-[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://deploy-to-sfdx.com/deploy?template=https://github.com/chadevanssf/flexible-list)
+[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://deploy-to-sfdx.com/deploy?template=https://github.com/chadevanssf/survey-basics)
 
 ### Deploy via Metadata API
 
