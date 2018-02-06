@@ -13,11 +13,11 @@
     </fields>
     <fields>
         <fullName>NetworkId__c</fullName>
-        <description>Network Id, aka Community Id</description>
+        <description>Id, Name or Url Path Prefix of Community, aka Network</description>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>NetworkId</label>
-        <length>20</length>
+        <length>100</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>

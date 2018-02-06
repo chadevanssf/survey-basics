@@ -1,4 +1,4 @@
-trigger TestOnSurveyComplete on SurveyResponse (after update) {
+trigger ScoreSurvey on SurveyResponse (after update) {
     // get all the responses, that are completed
     Set<Id> responseIds = new Set<Id>();
     for (SurveyResponse sr : Trigger.new)
