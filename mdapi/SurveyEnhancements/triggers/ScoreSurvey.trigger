@@ -43,7 +43,15 @@ trigger ScoreSurvey on SurveyResponse (after update) {
                 String scoreStr = sqr.ResponseShortText;
                 if (String.isNotBlank(scoreStr))
                 {
-                    Decimal score = Decimal.valueOf(scoreStr);
+                    Double score = Double.valueOf(scoreStr);
+                    if (c.Survey_Latest_Score__c == null)
+                    {
+                        c.Survey_Latest_Score__c = score;
+                    }
+                    else
+                    {
+                        c.Survey_Latest_Score__c = c.Survey_Latest_Score__c + score;
+                    }
                     c.Survey_Latest_Score__c = score;
                     c.Survey_Latest_Score_Date__c = DateTime.now();
                 }

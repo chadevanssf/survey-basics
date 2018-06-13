@@ -1,5 +1,9 @@
+// MUST have with sharing to enable the Participant to read the survey
 global with sharing class SurveyLinkManager 
 {
+    /*
+     * Create the SurveyInvitation
+     */
     public static SurveyInvitation createSurveyRequest(Id SurveyId, Id ParticipantId, Id NetworkId, String AdditionalIdField, Id AdditionalId)
     {
         SurveyInvitation invite = new SurveyInvitation(
@@ -19,6 +23,9 @@ global with sharing class SurveyLinkManager
         return invite;
     }
     
+    /*
+     * Create the SurveyInvitation with strings that need to be resolved
+     */
     public static SurveyInvitation createSurveyRequestWithLookup(String SurveyIdOrName, Id ParticipantId, String NetworkIdOrName, String AdditionalIdField, Id AdditionalId)
     {
         Id surveyId;
@@ -35,7 +42,6 @@ global with sharing class SurveyLinkManager
         
         Id networkId;
         if (!isSalesforceIdFormat(NetworkIdOrName)) {
-            networkId = NetworkIdOrName;
             List<Network> networks = [SELECT Id
                                       FROM Network
                                       WHERE UrlPathPrefix = :NetworkIdOrName
@@ -69,15 +75,35 @@ global with sharing class SurveyLinkManager
         
         insert invites;
         
+        List<Id> inviteIds = new List<Id>();
+        
         for (SurveyInvitation invite : invites)
         {
             String inviteId = invite.Id;
+            
+            inviteIds.add(invite.Id);
             
             SurveyInvitationResult result = new SurveyInvitationResult();
             result.inviteId = inviteId;
             result.success = true;
             results.add(result);
         }
+        
+        List<Case> cases = [SELECT Id,
+                            (SELECT I.InvitationLink
+                             FROM Survey_Invitations__r I
+                             WHERE I.Id IN :inviteIds)
+                            FROM Case
+                            WHERE Id IN (SELECT Case__c
+                                         FROM SurveyInvitation
+                                         WHERE Id IN :inviteIds)];
+        
+        for (Case c : cases)
+        {
+            c.Survey_Invitation_Url__c = c.Survey_Invitations__r[0].InvitationLink;
+        }
+        
+        update cases;
         
         return results;
     }

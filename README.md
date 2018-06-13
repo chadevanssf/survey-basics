@@ -2,6 +2,24 @@
 
 Some helper functions to get up and running with Salesforce Surveys. Not complete yet, but have some interesting examples.
 
+<!-- markdownlint-disable MD007 -->
+<!-- TOC -->
+
+- [survey-basics](#survey-basics)
+    - [Examples](#examples)
+        - [SurveyInvitation Link Manager](#surveyinvitation-link-manager)
+    - [Deployment Options](#deployment-options)
+        - [Deploy using SFDX](#deploy-using-sfdx)
+        - [Deploy via Metadata API](#deploy-via-metadata-api)
+    - [Development](#development)
+        - [Setup](#setup)
+        - [SFDX Dev Hub Login](#sfdx-dev-hub-login)
+        - [Pull Latest](#pull-latest)
+        - [Push latest](#push-latest)
+
+<!-- /TOC -->
+<!-- markdownlint-enable MD007 -->
+
 ## Examples
 
 ### SurveyInvitation Link Manager
@@ -25,10 +43,27 @@ Does the creation of a Private SurveyInvitation. Example uses a SurveyInvitation
 
 ## Development
 
+### Setup
+
+After creation of a scratch org, you will need to enable the surveys product, under Setup > Feature Settings > Survey > Survey Settings.
+
+Modify the Sharing Settings (Setup > Security > Sharing Settings) for the User object to have Public Read Only access.
+
+Assign the default Surveys permission set
+
+```bash
+sfdx force:user:permset:assign -n "SurveyCreator"
+```
+
+Once you create a Community, you will have to modify the default user permissions to have Public access for the User object. Setup > User Interface > Sites and Domains > Sites, select the correct Community (not the site url), click Public Access Settings, click Object Settings, select Survey Responses, edit the settings to have Edit rights to the object.
+
+### SFDX Dev Hub Login
+
 sfdx force:auth:web:login –a surveys
 
 ### Pull Latest
 
+```bash
 rm -r ./mdapi/
 
 mkdir ./mdapi
@@ -40,7 +75,12 @@ unzip -aou ./mdapi/unpackaged.zip -d ./mdapi/
 rm ./mdapi/unpackaged.zip
 
 sfdx force:mdapi:convert -r ./mdapi
+```
 
 ### Push latest
 
-sfdx force:source:convert -d ./mdapi/
+```bash
+sfdx force:source:convert -d ./mdapi/SurveyEnhancements/
+
+sfdx force:mdapi:deploy -d ./mdpai/SurveyEnhancements/ -a surveys
+```

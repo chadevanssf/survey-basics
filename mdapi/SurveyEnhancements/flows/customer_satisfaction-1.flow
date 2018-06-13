@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <choices>
+        <name>c_15bec8e8_0389_400c_8ed8_747d372d37ad</name>
+        <choiceText>And final one</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>And final one</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>c_1cac2a47_4ba7_4b2e_aa4b_f5037a071a9e</name>
+        <choiceText>Second one</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Second one</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>c_39bf49ab_1d92_48ef_99d8_f283d9282794</name>
+        <choiceText>This is the first option</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>This is the first option</stringValue>
+        </value>
+    </choices>
+    <interviewLabel>Customer Satisfaction</interviewLabel>
+    <label>Customer Satisfaction</label>
+    <processMetadataValues>
+        <name>overrideActiveVersion</name>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </processMetadataValues>
+    <processType>Survey</processType>
+    <screens>
+        <name>p_48e5fd3c_2ed3_47f8_b741_1259a71da558</name>
+        <label>&lt;p&gt;Are you happy with things?&lt;/p&gt;</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>q_0c7c8552_7108_462d_9e68_acd86447808f</name>
+            <choiceReferences>c_39bf49ab_1d92_48ef_99d8_f283d9282794</choiceReferences>
+            <choiceReferences>c_1cac2a47_4ba7_4b2e_aa4b_f5037a071a9e</choiceReferences>
+            <choiceReferences>c_15bec8e8_0389_400c_8ed8_747d372d37ad</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>&lt;p&gt;Are you happy with things?&lt;/p&gt;</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>welcome_page</name>
+        <label>&lt;p&gt;Customer Satifaction&lt;/p&gt;</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>p_48e5fd3c_2ed3_47f8_b741_1259a71da558</targetReference>
+        </connector>
+        <fields>
+            <name>welcome_question</name>
+            <extensionName>survey:runtimeWelcome</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>&lt;p&gt;Customer Satifaction&lt;/p&gt;</stringValue>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>welcome_page</startElementReference>
+    <variables>
+        <name>invitationId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue/>
+        </value>
+    </variables>
+    <variables>
+        <name>previewMode</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>thankYouDescription</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue/>
+        </value>
+    </variables>
+    <variables>
+        <name>thankYouLabel</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>&lt;p&gt;Thank you for your time&lt;/p&gt;</stringValue>
+        </value>
+    </variables>
+</Flow>

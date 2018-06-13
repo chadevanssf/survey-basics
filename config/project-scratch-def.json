@@ -1,7 +1,8 @@
 {
-    "orgName": "chad.evans Company",
+    "orgName": "Salesforce Surveys Company",
     "edition": "Developer",
+    "features": "Communities",
     "orgPreferences" : {
-        "enabled": ["S1DesktopEnabled"]
+        "enabled": ["S1DesktopEnabled", "NetworksEnabled"]
     }
 }
