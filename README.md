@@ -12,7 +12,7 @@ Some helper functions to get up and running with Salesforce Surveys. Not complet
         - [Deploy using SFDX](#deploy-using-sfdx)
         - [Deploy via Metadata API](#deploy-via-metadata-api)
     - [Development](#development)
-        - [Setup](#setup)
+        - [Manual Setup Steps](#manual-setup-steps)
         - [SFDX Dev Hub Login](#sfdx-dev-hub-login)
         - [Pull Latest](#pull-latest)
         - [Push latest](#push-latest)
@@ -43,7 +43,7 @@ Does the creation of a Private SurveyInvitation. Example uses a SurveyInvitation
 
 ## Development
 
-### Setup
+### Manual Setup Steps
 
 After creation of a scratch org, you will need to enable the surveys product, under Setup > Feature Settings > Survey > Survey Settings.
 
@@ -55,7 +55,7 @@ Assign the default Surveys permission set
 sfdx force:user:permset:assign -n "SurveyCreator"
 ```
 
-Once you create a Community, you will have to modify the default user permissions to have Public access for the User object. Setup > User Interface > Sites and Domains > Sites, select the correct Community (not the site url), click Public Access Settings, click Object Settings, select Survey Responses, edit the settings to have Edit rights to the object.
+Once you create a Community, you will have to modify the default user permissions to have Public access for the Survey Response object. Setup > User Interface > Sites and Domains > Sites, select the correct Community (not the site url), click Public Access Settings, click Object Settings, select Survey Responses, edit the settings to have Edit rights to the object.
 
 ### SFDX Dev Hub Login
 

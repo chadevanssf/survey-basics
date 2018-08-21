@@ -1,9 +1,9 @@
 scratch-org-def: config/project-scratch-def.json
 assign-permset: true
-permset-name: Dynamic_Image_Display
+permset-name: SurveyCreator
 run-apex-tests: false
 delete-scratch-org: false
 show-scratch-org-url: true
 data-plans:
   - ./data/Image_Status__c-Image_Status_Detail__c-plan.json
-open-path: one/one.app#/n/Dynamic_Image_List
+open-path: lightning/page/home
