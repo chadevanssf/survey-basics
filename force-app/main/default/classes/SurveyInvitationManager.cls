@@ -1,5 +1,5 @@
 // MUST have with sharing to enable the Participant to read the survey
-global with sharing class SurveyLinkManager 
+global with sharing class SurveyInvitationManager
 {
     /*
      * Create the SurveyInvitation
@@ -11,7 +11,7 @@ global with sharing class SurveyLinkManager
             ParticipantId = ParticipantId,
             //OptionsAllowGuestUserResponse = true,
             CommunityId = NetworkId,
-            Name = 'Private Invitation_' + String.valueOfGmt(DateTime.now()),
+            Name = 'Private_Invitation_' + String.valueOfGmt(DateTime.now()),
             OwnerId = UserInfo.getUserId()
         );
         
@@ -28,26 +28,30 @@ global with sharing class SurveyLinkManager
      */
     public static SurveyInvitation createSurveyRequestWithLookup(String SurveyIdOrName, Id ParticipantId, String NetworkIdOrName, String AdditionalIdField, Id AdditionalId)
     {
-        Id surveyId;
+        Id surveyId = null;
         if (!isSalesforceIdFormat(SurveyIdOrName)) {
             List<Survey> surveys = [SELECT Id
                                     FROM Survey
                                     WHERE DeveloperName = :SurveyIdOrName
                                     OR Name = :SurveyIdOrName
                                     LIMIT 1];
-            surveyId = surveys[0].Id;
+            if (surveys.size() > 0) {
+            	surveyId = surveys[0].Id;
+            }
         } else {
             surveyId = SurveyIdOrName;
         }
         
-        Id networkId;
+        Id networkId = null;
         if (!isSalesforceIdFormat(NetworkIdOrName)) {
             List<Network> networks = [SELECT Id
                                       FROM Network
                                       WHERE UrlPathPrefix = :NetworkIdOrName
                                       OR Name = :NetworkIdOrName
                                       LIMIT 1];
-            networkId = networks[0].Id;
+            if (networks.size() > 0) {
+                networkId = networks[0].Id;
+            }
         } else {
             networkId = NetworkIdOrName;
         }
@@ -88,22 +92,6 @@ global with sharing class SurveyLinkManager
             result.success = true;
             results.add(result);
         }
-        
-        List<Case> cases = [SELECT Id,
-                            (SELECT I.InvitationLink
-                             FROM Survey_Invitations__r I
-                             WHERE I.Id IN :inviteIds)
-                            FROM Case
-                            WHERE Id IN (SELECT Case__c
-                                         FROM SurveyInvitation
-                                         WHERE Id IN :inviteIds)];
-        
-        for (Case c : cases)
-        {
-            c.Survey_Invitation_Url__c = c.Survey_Invitations__r[0].InvitationLink;
-        }
-        
-        update cases;
         
         return results;
     }
