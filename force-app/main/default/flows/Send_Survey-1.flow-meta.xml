@@ -4,14 +4,14 @@
         <processMetadataValues>
             <name>apexSelection</name>
             <value>
-                <stringValue>SurveyLinkManager</stringValue>
+                <stringValue>SurveyInvitationManager</stringValue>
             </value>
         </processMetadataValues>
         <name>myRule_1_A1</name>
         <label>Send Survey To Case Info</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
-        <actionName>SurveyLinkManager</actionName>
+        <actionName>SurveyInvitationManager</actionName>
         <actionType>apex</actionType>
         <inputParameters>
             <processMetadataValues>

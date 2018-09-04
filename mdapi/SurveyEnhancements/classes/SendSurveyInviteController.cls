@@ -21,7 +21,7 @@ public with sharing class SendSurveyInviteController {
         
         String ParticipantId = (String)lookup.get(setting.Participant_Lookup_Query_Id_Field__c);
         
-        SurveyInvitation invite = SurveyLinkManager.createSurveyRequestWithLookup(surveyId, 
+        SurveyInvitation invite = SurveyInvitationManager.createSurveyRequestWithLookup(surveyId, 
                                                                         ParticipantId, 
                                                                         setting.NetworkId__c, 
                                                                         setting.Lookup_Id_Field__c, 
