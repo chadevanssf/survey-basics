@@ -57,6 +57,15 @@ sfdx force:user:permset:assign -n "SurveyCreator"
 
 Once you create a Community, you will have to modify the default user permissions to have Public access for the Survey Response object. Setup > User Interface > Sites and Domains > Sites, select the correct Community (not the site url), click Public Access Settings, click Object Settings, select Survey Responses, edit the settings to have Edit rights to the object.
 
+To leverage the Lightning Component to select the Survey and send out the link, like on a record home page or through a Lightning Flow, you will also have to create a record for the custom metadata type 'Survey Settings'
+
+- Label: anything you want to use
+- Survey Setting Name: A dev name that you will need to refer to in the component configuration
+- Network Name or Id: The name or id of the network to use
+- Lookup Id Field: The name of the field on the survey that links to the parent context record
+- Participant Lookup Query: How are you going to get the value on the parent record to know what the participant is? This is something like 'SELECT ContactId FROM Case WHERE Id = :contextId', must have the :contextId as the key variable that gets substituted in
+- Participant Lookup Query Id Field: This is the field that is returned from the above query, so in this example it is 'ContactId'
+
 ### SFDX Dev Hub Login
 
 sfdx force:auth:web:login –a surveys
