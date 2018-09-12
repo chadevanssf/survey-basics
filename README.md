@@ -6,25 +6,17 @@ Some helper functions to get up and running with Salesforce Surveys. Not complet
 <!-- TOC -->
 
 - [survey-basics](#survey-basics)
-    - [Examples](#examples)
-        - [SurveyInvitation Link Manager](#surveyinvitation-link-manager)
     - [Deployment Options](#deployment-options)
         - [Deploy using SFDX](#deploy-using-sfdx)
         - [Deploy via Metadata API](#deploy-via-metadata-api)
     - [Development](#development)
         - [Manual Setup Steps](#manual-setup-steps)
-        - [SFDX Dev Hub Login](#sfdx-dev-hub-login)
-        - [Pull Latest](#pull-latest)
+        - [Associate with your Target Org](#associate-with-your-target-org)
         - [Push latest](#push-latest)
+        - [Pull Latest if you make changes](#pull-latest-if-you-make-changes)
 
 <!-- /TOC -->
 <!-- markdownlint-enable MD007 -->
-
-## Examples
-
-### SurveyInvitation Link Manager
-
-Does the creation of a Private SurveyInvitation. Example uses a SurveyInvitation linked to a Case and a Contact. Can be used from Process Builder, or Apex. See [SuveyLinkManager](https://github.com/chadevanssf/survey-basics/blob/master/force-app/main/default/classes/SurveyLinkManager.cls) for details.
 
 ## Deployment Options
 
@@ -66,11 +58,27 @@ To leverage the Lightning Component to select the Survey and send out the link, 
 - Participant Lookup Query: How are you going to get the value on the parent record to know what the participant is? This is something like 'SELECT ContactId FROM Case WHERE Id = :contextId', must have the :contextId as the key variable that gets substituted in
 - Participant Lookup Query Id Field: This is the field that is returned from the above query, so in this example it is 'ContactId'
 
-### SFDX Dev Hub Login
+### Associate with your Target Org
 
-sfdx force:auth:web:login –a surveys
+Associate SFDX with your target org
 
-### Pull Latest
+```sh
+sfdx force:auth:web:login -a surveys
+```
+
+### Push latest
+
+```bash
+rm -r ./mdapi/
+
+mkdir ./mdapi
+
+sfdx force:source:convert -d ./mdapi/SurveyEnhancements/
+
+sfdx force:mdapi:deploy -d ./mdpai/SurveyEnhancements/ -u surveys -w 5
+```
+
+### Pull Latest if you make changes
 
 ```bash
 rm -r ./mdapi/
@@ -84,12 +92,4 @@ unzip -aou ./mdapi/unpackaged.zip -d ./mdapi/
 rm ./mdapi/unpackaged.zip
 
 sfdx force:mdapi:convert -r ./mdapi
-```
-
-### Push latest
-
-```bash
-sfdx force:source:convert -d ./mdapi/SurveyEnhancements/
-
-sfdx force:mdapi:deploy -d ./mdpai/SurveyEnhancements/ -a surveys
 ```

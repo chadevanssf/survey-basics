@@ -8,6 +8,7 @@
         <description>Name of the lookup field on SurveyInvitation to store the Id</description>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>This is the field used to create the look up to the parent record on the Survey Invitation object that will store the parent id</inlineHelpText>
         <label>Lookup Id Field</label>
         <length>255</length>
         <required>false</required>
@@ -19,7 +20,8 @@
         <description>Id, Name or Url Path Prefix of Community, aka Network</description>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>NetworkId</label>
+        <inlineHelpText>This is the Network Name AKA Community Name, from the Developer Name</inlineHelpText>
+        <label>Network Name or Id</label>
         <length>100</length>
         <required>false</required>
         <type>Text</type>

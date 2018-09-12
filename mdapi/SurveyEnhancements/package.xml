@@ -7,10 +7,13 @@
   <types>
     <name>ApexClass</name>
     <members>SendSurveyInviteController</members>
+    <members>SendSurveyInviteController_Test</members>
     <members>SurveyInvitationManager</members>
     <members>SurveyInvitationManager_Test</members>
-    <members>SurveyResponse_TriggerHelper</members>
-    <members>SurveyResponse_TriggerHelper_Test</members>
+  </types>
+  <types>
+    <name>CustomMetadata</name>
+    <members>Survey_Setting.Case</members>
   </types>
   <types>
     <name>FlowDefinition</name>
@@ -25,15 +28,8 @@
   </types>
   <types>
     <name>Layout</name>
+    <members>SurveyInvitation-Survey Invitation Layout</members>
     <members>Survey_Setting__mdt-Survey Setting Layout</members>
-  </types>
-  <types>
-    <name>NetworkBranding</name>
-    <members>cbtest</members>
-  </types>
-  <types>
-    <name>Network</name>
-    <members>test</members>
   </types>
   <types>
     <name>CustomObject</name>
@@ -42,8 +38,7 @@
   </types>
   <types>
     <name>CustomField</name>
-    <members>SurveyInvitation.Score_Date__c</members>
-    <members>SurveyInvitation.Score__c</members>
+    <members>SurveyInvitation.Case__c</members>
     <members>Survey_Setting__mdt.Lookup_Id_Field__c</members>
     <members>Survey_Setting__mdt.NetworkId__c</members>
     <members>Survey_Setting__mdt.Participant_Lookup_Query_Id_Field__c</members>
@@ -56,14 +51,6 @@
   <types>
     <name>QuickAction</name>
     <members>Case.Send_Survey</members>
-  </types>
-  <types>
-    <name>CustomSite</name>
-    <members>test</members>
-  </types>
-  <types>
-    <name>ApexTrigger</name>
-    <members>SurveyResponse_Trigger</members>
   </types>
   <version>41.0</version>
 </Package>
