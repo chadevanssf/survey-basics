@@ -16,13 +16,8 @@
     <members>Survey_Setting.Case</members>
   </types>
   <types>
-    <name>FlowDefinition</name>
-    <members>customer_satisfaction</members>
-  </types>
-  <types>
     <name>Flow</name>
     <members>Send_Survey-1</members>
-    <members>customer_satisfaction-1</members>
   </types>
   <types>
     <name>Layout</name>
