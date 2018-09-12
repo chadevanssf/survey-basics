@@ -23,8 +23,6 @@
     <name>Flow</name>
     <members>Send_Survey-1</members>
     <members>customer_satisfaction-1</members>
-    <members>customer_satisfaction-2</members>
-    <members>customer_satisfaction-3</members>
   </types>
   <types>
     <name>Layout</name>

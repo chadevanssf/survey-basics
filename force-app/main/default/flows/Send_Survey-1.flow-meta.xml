@@ -47,12 +47,12 @@
             <processMetadataValues>
                 <name>rightHandSideType</name>
                 <value>
-                    <stringValue>ID</stringValue>
+                    <stringValue>String</stringValue>
                 </value>
             </processMetadataValues>
             <name>networkId</name>
             <value>
-                <stringValue>0DBB00000004V7wOAE</stringValue>
+                <stringValue>test</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -131,12 +131,12 @@
             <processMetadataValues>
                 <name>rightHandSideType</name>
                 <value>
-                    <stringValue>ID</stringValue>
+                    <stringValue>String</stringValue>
                 </value>
             </processMetadataValues>
             <name>surveyId</name>
             <value>
-                <stringValue>0KdB00000004D9rKAE</stringValue>
+                <stringValue>Customer Satisfaction</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
